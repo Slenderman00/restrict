@@ -1,4 +1,4 @@
-### RESTRICT.INFO
+# RESTRICT.INFO
 ---
 Sourcecode for https://restrict.info
 ---
