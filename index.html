@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RESTRICT.INFO</title>
+        <link rel="icon" href="favicon.ico" type="image/ico">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="scripts/countries.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="#">RESTRICT.INFO</a>
+        </nav>
+        <br>
+        <br>
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Departure</h4>
+                    <div class="form-group">
+                        <label for="Departure"></label>
+                        <select class="custom-select" name="" id="departure">
+                            <option value="" selected>Select one</option>
+                        </select>
+                    </div>
+                    <h4 class="card-title">Arrival</h4>
+                    <div class="form-group">
+                        <label for="Arrival"></label>
+                        <select class="custom-select" name="" id="arrival">
+                            <option value="" selected>Select one</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card m-3" id='result'>
+                    <div class="card-body" id='resultbody'>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        _result = document.getElementById('result');
+        _resultbody = document.getElementById('resultbody');
+        _result.style.display = "none";
+
+        departure = document.getElementById('departure');
+        arrival = document.getElementById('arrival');
+        fetch(departure, arrival);
+
+        departure.onclick = () => {
+            send(departure.value, arrival.value, _result, _resultbody);
+        }
+        arrival.onclick = () => {
+            send(departure.value, arrival.value, _result, _resultbody);
+        }
+
+        //hot patch
+        setInterval(() => {
+            send(departure.value, arrival.value, _result, _resultbody);
+        }, 1000);
+
+
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</html>
